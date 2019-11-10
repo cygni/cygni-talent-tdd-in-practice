@@ -17,6 +17,7 @@ public class StringUtilsTest {
         assertThat(stringUtils.isPalindrome("")).isTrue();
         assertThat(stringUtils.isPalindrome("abba")).isTrue();
         assertThat(stringUtils.isPalindrome("tattarrattat")).isTrue();
+        
     }
 
     /**
