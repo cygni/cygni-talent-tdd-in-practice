@@ -16,8 +16,9 @@ public class StringUtilsTest {
         assertThat(stringUtils.isPalindrome("NotEvenClose")).isFalse();
         assertThat(stringUtils.isPalindrome("")).isTrue();
         assertThat(stringUtils.isPalindrome("abba")).isTrue();
+        assertThat(stringUtils.isPalindrome("amma")).isTrue();
         assertThat(stringUtils.isPalindrome("tattarrattat")).isTrue();
-        
+
     }
 
     /**
