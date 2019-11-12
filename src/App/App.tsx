@@ -20,20 +20,30 @@ export default function App() {
   );
 
   return (
-    <header className={classes.header}>
-      <img src={logo} className={classes.logo} alt="logo" />
-      <p>
-        Edit <code className={classes.code}>src/App.tsx</code> and save to
-        reload.
-      </p>
-      <a
-        className={classes.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <div>
+      {error && <div role="alert">Oh no!</div>}
+      <div>
+        {loading
+          ? 'Loading'
+          : photos.length < 1
+          ? 'No images found'
+          : photos.map(el => (
+              <img
+                key={el.id}
+                alt={el.title}
+                src={el.sizes[0].url}
+                width={el.sizes[0].width}
+                height={el.sizes[0].height}
+              />
+            ))}
+      </div>
+      <label htmlFor="search">Search</label>
+      <input
+        type="search"
+        id="search"
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+      />
+    </div>
   );
 }
