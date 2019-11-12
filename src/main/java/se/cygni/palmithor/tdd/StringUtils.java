@@ -4,7 +4,12 @@ public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if (str == null) {
+            return false;
+        }
+        StringBuilder sb = new StringBuilder(str).reverse();
+        var sbStr = sb.toString();
+        return sbStr.equals(str);
     }
 
 
