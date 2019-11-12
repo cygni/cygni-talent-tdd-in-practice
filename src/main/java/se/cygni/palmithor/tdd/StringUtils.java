@@ -20,6 +20,6 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+      return str == null || str.equals("") || str.replace(" ", "").isEmpty();
     }
 }
