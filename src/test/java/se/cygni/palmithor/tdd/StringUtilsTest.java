@@ -11,10 +11,10 @@ public class StringUtilsTest {
 
     @Test
     public void isPalindrome() {
-        assertThat(stringUtils.isPalindrome("aabb")).isFalse();
         assertThat(stringUtils.isPalindrome(null)).isFalse();
-        assertThat(stringUtils.isPalindrome("NotEvenClose")).isFalse();
         assertThat(stringUtils.isPalindrome("")).isTrue();
+        assertThat(stringUtils.isPalindrome("aabb")).isFalse();
+        assertThat(stringUtils.isPalindrome("NotEvenClose")).isFalse();
         assertThat(stringUtils.isPalindrome("abba")).isTrue();
         assertThat(stringUtils.isPalindrome("tattarrattat")).isTrue();
     }
@@ -24,6 +24,15 @@ public class StringUtilsTest {
      */
     @Test
     public void isBlank() {
-        // stringUtils.isBlank()
+        assertThat(stringUtils.isBlank("     ")).isTrue();
+        assertThat(stringUtils.isBlank("")).isTrue();
+        assertThat(stringUtils.isBlank(null)).isTrue();
+        assertThat(stringUtils.isBlank("mjjjouu")).isFalse();
+        assertThat(stringUtils.isBlank(" hej")).isFalse();
+        assertThat(stringUtils.isBlank(" \n")).isTrue();
+        assertThat(stringUtils.isBlank(" \t")).isTrue();
+
+
+
     }
 }
