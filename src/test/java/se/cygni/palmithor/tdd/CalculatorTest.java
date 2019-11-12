@@ -20,6 +20,13 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testNullParamList() {
+
+        assertThat(calculator.sumAll(null)).isEqualTo(Optional.empty()); // TODO failing on purpose please fix
+
+    }
+
+    @Test
     public void testParamListWithOneParam() {
 
         assertThat(calculator.sumAll(5).get()).isEqualTo(5); // TODO failing on purpose please fix
