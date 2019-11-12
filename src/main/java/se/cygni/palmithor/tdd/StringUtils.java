@@ -4,7 +4,19 @@ public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        boolean result = true;
+
+        if(str != null) {
+            for(int i = 0; i < str.length() / 2; i++) {
+                if(str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                    result = false;
+                    break;
+                }
+            }
+        } else {
+            result = false;
+        }
+        return result;
     }
 
 
@@ -15,6 +27,15 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        int strLen = str != null ? str.length() : 0;
+        if (strLen == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }
