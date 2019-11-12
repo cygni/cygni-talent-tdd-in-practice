@@ -10,9 +10,7 @@ public class StringUtils {
         StringBuilder sb = new StringBuilder(str);
         sb.reverse();
         return str.equals(sb.toString());
-        //throw new RuntimeException("Not yet implemented");
     }
-
 
     /**
      * Checks if a String is empty (""), null or whitespace only.
@@ -21,6 +19,6 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        return str == null ||  str.trim().isEmpty();
+        return str == null || str.trim().isEmpty();
     }
 }
