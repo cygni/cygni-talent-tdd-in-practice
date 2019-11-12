@@ -1,6 +1,5 @@
 package se.cygni.palmithor.tdd;
 
-
 import org.junit.Test;
 
 import java.util.Optional;
@@ -17,6 +16,4 @@ public class CalculatorTest {
         assertThat(calculator.sumAll().get()).isEqualTo(0);
         assertThat(calculator.sumAll(1, 2, 3, -1, -2).get()).isEqualTo(3);
     }
-
-
 }

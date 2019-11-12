@@ -2,7 +2,6 @@ package se.cygni.palmithor.tdd;
 
 public class StringUtils {
 
-
     public boolean isPalindrome(final String str) {
 
         if (str == null) {
@@ -17,7 +16,6 @@ public class StringUtils {
 
         return true;
     }
-
 
     /**
      * Checks if a String is empty (""), null or whitespace only.
