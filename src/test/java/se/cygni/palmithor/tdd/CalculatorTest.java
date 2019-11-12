@@ -13,7 +13,8 @@ public class CalculatorTest {
 
     @Test
     public void test() {
-        assertThat(calculator.sumAll().get()).isEqualTo(1); // TODO failing on purpose please fix
+        assertThat(calculator.sumAll()).isEqualTo(Optional.of(0));
+        assertThat(calculator.sumAll(null)).isEqualTo(Optional.empty());
     }
 
 
