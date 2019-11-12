@@ -13,7 +13,9 @@ public class CalculatorTest {
 
     @Test
     public void test() {
-        assertThat(calculator.sumAll().get()).isEqualTo(1); // TODO failing on purpose please fix
+        assertThat(calculator.sumAll(null)).isEqualTo(Optional.empty());
+        assertThat(calculator.sumAll().get()).isEqualTo(0);
+        assertThat(calculator.sumAll(1, 2, 3, -1, -2).get()).isEqualTo(3);
     }
 
 
