@@ -14,7 +14,7 @@ public class CalculatorTest {
     @Test
     public void test() {
         assertThat(calculator.sumAll(null)).isEqualTo(Optional.empty());
-        assertThat(calculator.sumAll(1).get()).isEqualTo(1);
+        assertThat(calculator.sumAll().get()).isEqualTo(0);
         assertThat(calculator.sumAll(1,2,3).get()).isEqualTo(6);
     }
 
