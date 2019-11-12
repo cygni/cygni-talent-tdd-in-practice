@@ -24,6 +24,9 @@ public class StringUtilsTest {
      */
     @Test
     public void isBlank() {
-        // stringUtils.isBlank()
+        assertThat(stringUtils.isBlank("")).isTrue();
+        assertThat(stringUtils.isBlank(null)).isTrue();
+        assertThat(stringUtils.isBlank("      \t")).isTrue();
+        assertThat(stringUtils.isBlank("Hello Foo\tEtc")).isFalse();
     }
 }
