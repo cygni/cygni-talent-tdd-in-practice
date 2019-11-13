@@ -4,17 +4,21 @@ public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if (str == null) {
+            return false;
+        }
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        return str.equals(sb.toString());
     }
-
 
     /**
      * Checks if a String is empty (""), null or whitespace only.
-     * @param str the string to check
      *
+     * @param str the string to check
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        return str == null || str.trim().isEmpty();
     }
 }
