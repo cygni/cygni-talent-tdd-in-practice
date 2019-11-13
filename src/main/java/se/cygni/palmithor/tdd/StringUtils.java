@@ -8,7 +8,7 @@ public class StringUtils {
       return false;
     }
     StringBuilder string = new StringBuilder(str);
-    return string.reverse() == string;
+    return string.reverse().toString().equals(str);
   }
 
 
