@@ -19,21 +19,23 @@ export default function App() {
     ]),
   );
 
+    const images = photos.map((photo) => {
+        return <img
+            key={photo.id}
+            src={photo.sizes[0].url}
+            alt={photo.title}
+            height={photo.sizes[0].height}
+            width={photo.sizes[0].width}/>
+    });
+
   return (
-    <header className={classes.header}>
-      <img src={logo} className={classes.logo} alt="logo" />
-      <p>
-        Edit <code className={classes.code}>src/App.tsx</code> and save to
-        reload.
-      </p>
-      <a
-        className={classes.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <div>
+        {error && <div role={"alert"}>{error.message}</div>}
+        {loading && <div>Loading</div>}
+        {!loading && photos.length === 0 && <div>No photos found</div>}
+        <label htmlFor="search">Search</label>
+        <input type="text" id="search" defaultValue={"Cygni"} onChange={(event) => {setQuery(event.target.value)}}/>
+        {images}
+    </div>
   );
 }
