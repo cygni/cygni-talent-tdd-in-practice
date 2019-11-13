@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  render,
+  wait,
   waitForElementToBeRemoved,
   fireEvent,
-  wait,
+  render,
 } from '@testing-library/react';
 import App from './App';
 
@@ -12,20 +12,22 @@ import { Photo } from '../api/FlickrService';
 import { createDeferred } from '../utils';
 
 it('shows a loading message while loading', async () => {
-  const { promise, resolve } = createDeferred<readonly Photo[]>();
+  const photosDeferred = createDeferred<readonly Photo[]>();
   jest
     .spyOn(FlickrServiceMock.prototype, 'searchPhotos')
-    .mockReturnValue(promise);
+    .mockReturnValue(photosDeferred.promise);
 
   const { findByText, queryByText } = render(<App />);
 
   await findByText('Loading');
 
-  resolve([]);
+  expect(queryByText('No photos found')).toBeNull();
+
+  photosDeferred.resolve([]);
 
   await waitForElementToBeRemoved(() => queryByText('Loading'));
 
-  await findByText('No images found');
+  await findByText('No photos found');
 });
 
 it('shows an error message if something went wrong', async () => {
@@ -59,7 +61,10 @@ it('shows a search box and calls the service when entering some text', async () 
   expect(searchInput).toHaveValue(initialSearchText);
 
   await wait(() => {
-    expect(searchPhotosSpy).toHaveBeenLastCalledWith(initialSearchText);
+    expect(searchPhotosSpy).toHaveBeenLastCalledWith(
+      initialSearchText,
+      expect.any(AbortSignal),
+    );
   });
 
   fireEvent.change(searchInput, {
@@ -67,7 +72,10 @@ it('shows a search box and calls the service when entering some text', async () 
   });
 
   await wait(() => {
-    expect(searchPhotosSpy).toHaveBeenLastCalledWith(newSearchText);
+    expect(searchPhotosSpy).toHaveBeenLastCalledWith(
+      newSearchText,
+      expect.any(AbortSignal),
+    );
   });
 });
 
@@ -89,6 +97,6 @@ it('fetches and displays images', async () => {
   const { url, width, height } = mockPhoto.sizes[0];
 
   expect(imageElement).toHaveAttribute('src', url);
-  expect(imageElement).toHaveAttribute('width', width);
-  expect(imageElement).toHaveAttribute('height', height);
+  expect(imageElement).toHaveAttribute('width', width.toString());
+  expect(imageElement).toHaveAttribute('height', height.toString());
 });
