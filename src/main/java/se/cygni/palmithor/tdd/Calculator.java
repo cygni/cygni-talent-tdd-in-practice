@@ -4,9 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
-
 public class Calculator {
-
 
     public Optional<Integer> sumAll(final Integer... valuesParam) {
         if (valuesParam == null) {

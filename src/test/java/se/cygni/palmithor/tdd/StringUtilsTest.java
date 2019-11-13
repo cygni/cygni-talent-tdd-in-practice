@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 public class StringUtilsTest {
 
     private StringUtils stringUtils = new StringUtils();
@@ -23,6 +22,10 @@ public class StringUtilsTest {
      */
     @Test
     public void isBlank() {
-        // stringUtils.isBlank()
+        assertThat(stringUtils.isBlank(null)).isTrue();
+        assertThat(stringUtils.isBlank("")).isTrue();
+        assertThat(stringUtils.isBlank("      ")).isTrue();
+        assertThat(stringUtils.isBlank("   sad 1 ")).isFalse();
+        assertThat(stringUtils.isBlank("hAppy")).isFalse();
     }
 }
