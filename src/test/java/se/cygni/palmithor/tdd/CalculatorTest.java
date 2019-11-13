@@ -12,9 +12,13 @@ public class CalculatorTest {
     private Calculator calculator = new Calculator();
 
     @Test
-    public void test() {
-        assertThat(calculator.sumAll().get()).isEqualTo(1); // TODO failing on purpose please fix
+    public void test()
+    {
+        assertThat(calculator.sumAll(1).get()).isEqualTo(1);
+        assertThat(calculator.sumAll(null)).isEqualTo(Optional.empty());
+        assertThat(calculator.sumAll().get()).isEqualTo(0);
+        assertThat(calculator.sumAll(1, 2, 3).get()).isEqualTo(6);
+        assertThat(calculator.sumAll(-1, -2, -3).get()).isEqualTo(-6);
+        assertThat(calculator.sumAll(-1, null, -3).get()).isEqualTo(-4);
     }
-
-
 }
