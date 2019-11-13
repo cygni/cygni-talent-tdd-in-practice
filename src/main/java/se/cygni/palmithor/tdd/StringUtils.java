@@ -1,10 +1,14 @@
 package se.cygni.palmithor.tdd;
 
+import java.util.Arrays;
+
 public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if (str == null) return false;
+        var reverse = new StringBuilder(str).reverse().toString();
+        return str.equalsIgnoreCase(reverse);
     }
 
 
@@ -15,6 +19,9 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if (str == null) return true;
+        return str.chars()
+                .mapToObj(i -> (char) i)
+                .allMatch(c -> c.equals(' '));
     }
 }
