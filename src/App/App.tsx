@@ -26,14 +26,26 @@ export default function App() {
         Edit <code className={classes.code}>src/App.tsx</code> and save to
         reload.
       </p>
-      <a
-        className={classes.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+
+      {loading ? <p>Loading</p> : null }
+      {!loading && photos.length === 0 ? <p>No photos found</p> : null}
+      {error && <div role="alert">Oh no!</div>}
+
+      <label htmlFor="search">Search</label>
+      <input id="search" type="text" value={query} onChange={e => setQuery(e.target.value)}></input>
+     
+     {photos.map(photo => 
+      <img
+        key={photo.id}
+        width={photo.sizes[0].width}
+        alt={photo.title}
+        height={photo.sizes[0].height} 
+        src={photo.sizes[0].url}/>
+
+        
+     )}
+     
+     
     </header>
   );
 }
