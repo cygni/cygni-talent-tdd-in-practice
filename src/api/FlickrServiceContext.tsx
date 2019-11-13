@@ -11,17 +11,6 @@ export interface FlickrServiceProviderProps {
   children: React.ReactNode;
 }
 
-export function FlickrServiceProvider({
-  flickrService,
-  children,
-}: FlickrServiceProviderProps) {
-  return (
-    <FlickrServiceContext.Provider value={flickrService}>
-      {children}
-    </FlickrServiceContext.Provider>
-  );
-}
-
 export function useFlickrService() {
   return useContext(FlickrServiceContext);
 }

@@ -1,7 +1,7 @@
 import React, { Component, StrictMode } from 'react';
 import App from './App';
-import FlickServiceImpl from './api/FlickrServiceImpl';
-import { FlickrServiceProvider } from './api/FlickrServiceContext';
+import FlickrServiceImpl from './api/FlickrServiceImpl';
+import FlickrServiceContext from './api/FlickrServiceContext';
 
 export default class Root extends Component {
   componentDidMount() {
@@ -19,15 +19,15 @@ export default class Root extends Component {
   }
 
   render() {
-    const flickrService = new FlickServiceImpl(
+    const flickrService = new FlickrServiceImpl(
       process.env.REACT_APP_FLICKR_API_KEY,
     );
 
     return (
       <StrictMode>
-        <FlickrServiceProvider flickrService={flickrService}>
+        <FlickrServiceContext.Provider value={flickrService}>
           <App />
-        </FlickrServiceProvider>
+        </FlickrServiceContext.Provider>
       </StrictMode>
     );
   }
