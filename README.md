@@ -36,4 +36,6 @@ The implementation part should be done in this order:
 1. Implement `StringUtils.isPalindrome(final String str)`
 2. Implement the tests for `Calculator.sumAll(final Integer... valuesPram)`
 3. Implement both the tests and the functionality for `StringUtils.isBlank(final String str)`
-    
+
+## Running the tests
+`./mvnw test`
