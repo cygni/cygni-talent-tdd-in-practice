@@ -18,6 +18,8 @@ public class CalculatorTest {
         // what should the program do if overflow
         assertThat(calculator.sumAll(Integer.MAX_VALUE, 1).get()).isEqualTo(-2147483648);
         assertThat(calculator.sumAll(null,1,2).get()).isEqualTo(3);
+        assertThat(calculator.sumAll(0).get()).isEqualTo(0);
+        assertThat(calculator.sumAll().get()).isEqualTo(0);
     }
 
 
