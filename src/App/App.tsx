@@ -20,20 +20,33 @@ export default function App() {
   );
 
   return (
-    <header className={classes.header}>
-      <img src={logo} className={classes.logo} alt="logo" />
-      <p>
-        Edit <code className={classes.code}>src/App.tsx</code> and save to
-        reload.
-      </p>
-      <a
-        className={classes.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <>
+      <header className="header">Flickr magic!</header>
+      <p>{loading ? 'Loading' : photos.length > 0 ? '' : 'No photos found'}</p>
+      <div>
+        <label htmlFor="search-input">Search</label>
+        <input
+          id="search-input"
+          defaultValue={'Cygni'}
+          onChange={e => setQuery(e.target.value)}
+        />
+        <ul>
+          {photos.map(photo => {
+            return (
+              <li key={photo.id}>
+                <p>Title: {photo.title}</p>
+                <img
+                  alt={photo.title}
+                  src={photo.sizes[0].url}
+                  width={photo.sizes[0].width}
+                  height={photo.sizes[0].height}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {error !== undefined ? <p role="alert">{error.message}</p> : null}
+    </>
   );
 }
