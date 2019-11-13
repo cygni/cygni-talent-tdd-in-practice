@@ -3,9 +3,6 @@ import React, { useCallback, useState } from 'react';
 import { useFlickrService } from '../api/FlickrServiceContext';
 import { useRequest, useDebouncedValue } from '../utils';
 
-import classes from './App.module.css';
-import logo from './logo.svg';
-
 export default function App() {
   const flickrService = useFlickrService();
 
@@ -20,20 +17,27 @@ export default function App() {
   );
 
   return (
-    <header className={classes.header}>
-      <img src={logo} className={classes.logo} alt="logo" />
-      <p>
-        Edit <code className={classes.code}>src/App.tsx</code> and save to
-        reload.
-      </p>
-      <a
-        className={classes.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <>
+      <div>
+        <label htmlFor="searchbox">Search</label>
+        <input
+          id="searchbox"
+          type="search"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+      </div>
+      {loading ? (
+        <span>Loading</span>
+      ) : error !== undefined ? (
+        <span role="alert">{error.message}</span>
+      ) : photos.length === 0 ? (
+        <span>No photos found</span>
+      ) : (
+        photos.map(({ id, title, sizes: [{ url, width, height }] }) => (
+          <img key={id} alt={title} src={url} width={width} height={height} />
+        ))
+      )}
+    </>
   );
 }
