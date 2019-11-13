@@ -23,6 +23,15 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        return str == null || str.length() == 0;
+        if( str == null || str.length() == 0) {
+            return true;
+        } else {
+            for(int i = 0; i < str.length(); ++i) {
+                if(str.charAt(i) != ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

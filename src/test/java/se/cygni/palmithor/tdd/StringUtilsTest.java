@@ -28,6 +28,7 @@ public class StringUtilsTest {
         assertThat(stringUtils.isBlank("as")).isFalse();
         assertThat(stringUtils.isBlank("a")).isFalse();
         assertThat(stringUtils.isBlank("asldkasdlaskdasldaskdasld")).isFalse();
+        assertThat(stringUtils.isBlank(" ")).isTrue();
 
     }
 }
