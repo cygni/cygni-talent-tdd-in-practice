@@ -22,6 +22,6 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        return (str == null || str.isEmpty() || (str.trim().equals("")));
+        return (str == null || str.isBlank());
     }
 }
