@@ -1,10 +1,17 @@
 package se.cygni.palmithor.tdd;
 
+import java.sql.SQLOutput;
+
 public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if(str == null){
+            return false;
+        }
+        StringBuffer s = new StringBuffer(str);
+        StringBuffer s2 = s.reverse();
+        return s.equals(s2);
     }
 
 
@@ -15,6 +22,6 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        return (str == null || str.isEmpty() || (str.trim().equals("")));
     }
 }
