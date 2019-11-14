@@ -4,7 +4,10 @@ public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        if (str == null) {
+            return false;
+        }
+        return new StringBuilder(str).reverse().toString().equals(str);
     }
 
 
@@ -15,6 +18,7 @@ public class StringUtils {
      * @return true if str is null, empty or whitespace only, otherwise false
      */
     public boolean isBlank(final String str) {
-        throw new RuntimeException("Not yet implemented");
+        return str == null || str == "" || str.trim().isEmpty();
+
     }
 }
