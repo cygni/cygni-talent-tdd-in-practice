@@ -4,22 +4,10 @@ public class StringUtils {
 
 
     public boolean isPalindrome(final String str) {
-        if(str == null) {
+        if (str == null) {
             return false;
         }
-
-        for(int i1 = 0; i1 != str.length() /2; i1++) {
-
-            int i2 = str.length() -1 - i1;
-            
-            if(str.charAt(i1) != str.charAt(i2)){
-                return false;
-            }
-        }
-
-        return true;
-
-        //throw new RuntimeException("Not yet implemented");
+        return new StringBuilder(str).reverse().toString().equals(str);
     }
 
 
