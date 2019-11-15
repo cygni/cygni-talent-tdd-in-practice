@@ -23,6 +23,15 @@ public class StringUtilsTest {
      */
     @Test
     public void isBlank() {
-        // stringUtils.isBlank()
+        assertThat(stringUtils.isBlank(" ")).isTrue();
+        assertThat(stringUtils.isBlank("          ")).isTrue();
+        assertThat(stringUtils.isBlank("    ")).isTrue();
+        assertThat(stringUtils.isBlank("\r")).isTrue();
+        assertThat(stringUtils.isBlank("\n")).isTrue();
+        assertThat(stringUtils.isBlank("\t")).isTrue();
+        assertThat(stringUtils.isBlank("a   ö")).isFalse();
+        assertThat(stringUtils.isBlank("g")).isFalse();
+        assertThat(stringUtils.isBlank(null)).isTrue();
+        assertThat(stringUtils.isBlank("")).isTrue();
     }
 }
