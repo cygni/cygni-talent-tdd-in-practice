@@ -24,6 +24,13 @@ When writing unit tests, it is important that they are understandable,
 easy to maintain and do not break on refactoring. This exercise explores
 different strategies to implement tests for an application with external dependencies.
 
+## Running the tests
+
+`./mvnw test` on the command line
+
+You may also want to set up running the tests in you IDE, 
+in order to more easily visualise what passes and what fails.
+
 ## Exercise 1
 Your task is to improve the unit tests for `VehicleService.java`. In the 
 `src.test.java.se.cygni.talang.quality.application` folder you will find fully implemented 
@@ -80,10 +87,3 @@ endpoints over the network
 * Integration tests still need to be isolated. How do you keep your tests from affecting 
 each other through the shared database? How can you be sure that other (future) tests in the project won't 
 affect your tests?
-
-## Running the tests
-
-`./mvnw test` on the command line
-
-You may also want to set up running the tests in you IDE, 
-in order to more easily visualise what passes and what fails.
