@@ -16,11 +16,10 @@ In the project directory, you can run:
 
 1. Run npm install
 2. Run npm run test
-3. Start writing tests
 
 ## The assignment
 
-A calculator function, that takes an expression as a string, and returns a string value.
+Implement a calculator function, that takes an expression as a string, and returns a string value.
 
 You need to support addition, subtraction, division and multiplication.
 
