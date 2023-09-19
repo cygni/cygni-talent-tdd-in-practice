@@ -16,7 +16,7 @@ public class JpaSliceTest {
         // arrange
         var axe = new HeroEntity();
         axe.setName("Mogul Khan");
-        axe.setAttribute(HeroEntity.Attribute.STR);
+        axe.setMainAttribute(HeroEntity.Attribute.STR);
         axe.setUnitResponse("Axe likes this very much!");
         heroRepository.save(axe);
 
