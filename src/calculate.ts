@@ -6,4 +6,5 @@ export function calculate(input: string): string {
     const [first, second] = input.split("-");
     return (Number(first) - Number(second)).toString();
   }
+  return "";
 }
